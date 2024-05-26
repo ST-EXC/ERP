@@ -1,0 +1,24 @@
+//版本声明
+syntax = "proto3"; 
+
+//项目中import导入生成的Go代码的名称
+option go_package="hello_server/pb";
+
+//proto文件模块，同一个服务的proto文件必须使用同一个包名，此处的包名必须为pb
+package pb;
+
+//定义服务
+service Greeter{
+    //定义服务下的方法
+    //参数
+    rpc SayHello(HelloRequest)returns(HelloResponse){}
+}
+
+//定义的消息
+message HelloRequest{
+    string name = 1;// 1指字段的序号
+}
+
+message HelloResponse{
+    string reply = 1;
+}
